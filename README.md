@@ -17,10 +17,10 @@ image in main folder
 
 # Bare Bones Coding strategy:
 
-  *CSS-*
+  **CSS-**
     class to show button is lit up
     IDs for all buttons and score section
-  *HTML-*
+  **HTML-**
     div containing whole board
     div for score 
     div for all four buttons
@@ -29,7 +29,7 @@ image in main folder
       -button/a for color3
       -button/a for color4
       -button/a for starting
-  *JS/jquery-*
+  **JS/jquery-**
     array for order of buttons
     randomization for choosing next color to psuh onto this array
     method that runs through this array, showing each button pressed (adding light up classes and sounds)
