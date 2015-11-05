@@ -1,0 +1,108 @@
+/* This div represents the whole playing screen*/
+#whole-shebang{
+  display: block;
+  margin: 0 auto;
+  width: 90%;
+  height: 500px;
+}
+/* Div where the score and messages wil show up*/
+#side-bar{
+  float: left;
+  width: 20%;
+  height: 100%;
+  /*  just to make sure this is there*/
+  background: grey;
+}
+/*shows high score*/
+#score-board{
+  position: relative;
+  top: 10px;
+  left: 10px;
+  width: 80%;
+  height: 20%;
+  background: white;
+  font-size: 10px;
+  font-style: italic;
+  padding-left: 5px;
+}
+#actual-score{
+  font-size: 20px;
+  font-style: normal;
+  padding-left: 10px;
+  color: green;
+}
+/*playing space*/
+#board{
+  float: right;
+  width: 80%;
+  height: 100%;
+  background: pink;
+}
+/*contains actual buttons/is centered in game space*/
+#game-time{
+  position: relative;
+  left: 15%;
+  top: 5%;
+  width: 500px;
+  height: 500px;
+}
+/*actuay game portion*/
+#black-round-part{
+  background: #FFFF99;
+  border: solid #282828;
+  border-radius: 250px;
+  border-width: 17px;
+  height: 80%;
+  width: 80%;
+}
+/*start button*/
+#start{
+  position: relative;
+  top: 43%;
+  left: 43%;
+  font-size: 30px;
+  color: white;
+  background-color: pink;
+}
+#color-buttons{
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+/*for all buttons*/
+.pressable{
+  float: left;
+  height: 48%;
+  width: 48%;
+  border: solid #282828;
+  border-width: 4px;
+}
+#red{
+  background-color: red;
+  border-radius: 360% 0 0 0;
+}
+#blue{
+  background-color: blue;
+  border-radius: 0 360% 0 0;
+}
+#green{
+  background-color: green;
+  border-radius: 0 0 360% 0;
+}
+#yellow{
+  background-color: yellow;
+  border-radius: 0 0 0 360%;
+}
+.flash{
+  visibility: hidden;
+  /*background-color: white;*/
+}
+
+
+
+
+
+
+
+
+
