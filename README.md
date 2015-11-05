@@ -3,7 +3,7 @@
 My goal is make a playable game of Simon Says where the four different buttons light up in a randomly constructed order. The user will then be expected to input this same order. If they do this successfully, they will advance to a longer string of commands. 
 
 # User Story:
--User should be able to click start button
+\n-User should be able to click start button
 -user shold be able to see buttons light up and hear accompanying sound
 -user should be notified when it is their turn
 -user should be able to click each button 
