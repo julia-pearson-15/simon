@@ -56,14 +56,14 @@
   width: 80%;
 }
 /*start button*/
-#start{
+/*#start{
   position: relative;
   top: 43%;
   left: 43%;
   font-size: 30px;
   color: white;
   background-color: pink;
-}
+}*/
 #color-buttons{
   display: block;
   height: 100%;
