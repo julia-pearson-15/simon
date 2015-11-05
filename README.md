@@ -18,7 +18,8 @@ image in main folder
 # Bare Bones Coding strategy:
 
   *CSS-*
-    four clickable buttons
+    class to show button is lit up
+    IDs for all buttons and score section
   *HTML-*
     div containing whole board
     div for score 
