@@ -5,6 +5,7 @@
   var $green;
 
   var $highScore;
+  var $currentScore;
 
   //If this is true, it is the computer's turn
   var computer=true;
@@ -32,6 +33,7 @@
       //adding element to user array if user is the one playing
       if(!computer){
         userClicks.push($element);
+        $currentScore.text(userClicks.length);
         //should be 'at click 1,2,3,4,etc.'
         //console.log('at click '+userClicks.indexOf($element));
       }
@@ -78,11 +80,9 @@
   var runOrderedClicks = function() {
     var i=0;
     for (i = 0; i < orderedClicks.length; i++) {
-      //should be:  'computer? true, at index: 1,2,3,4,etc.'
-      //console.log('computer? '+computer+", at index: "+i)
-      setTimeout(clicked(orderedClicks[i]), i*700);
+      setTimeout(clicked(orderedClicks[i]), i*500);
     };
-    setTimeout(userTurnAlert,i*700);
+    setTimeout(userTurnAlert,i*500);
   } 
 
   //need func that cuts out event listeners when player gets order wrong
@@ -92,6 +92,7 @@
     $yellow.off();
     $green.off();
     alert('you lost!');
+    $currentScore.text(0);
   }
 
   var compareClicks = function() {
@@ -122,14 +123,15 @@ $(document).ready(function() {
   $yellow = $('#yellow');
   $green = $('#green'); 
   $start = $('#start');
-  $highScore = $('#actual-score'); 
- 
+  $highScore = $('#actual-score');
+  $currentScore = $('#current-score'); 
   //Beginning game with item in array
 
 
   //gets game started when start button pressed
   $start.on('click', function(){
     //warn user
+    $start.addClass('animated', 'bounce');
     userClicks=[];
     orderedClicks=[];
     addToSequence();

@@ -2,17 +2,21 @@
 <html>
 <head>
   <title>Simon Says</title>
-  <audio id="beepTime" src="shortBeep.mp3"></audio>
-  <audio id="lowBeep" src="lowBeep.mp3"></audio>
+  <audio id="beepTime" src="short_beep.mp3"></audio>
+  <audio id="lowBeep" src="low_beep.mp3"></audio>
+  <link rel="stylesheet" href="animate.css">
   <link rel="stylesheet" type="text/css" href="style.css">
   <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 </head>
 <body>
+  <div id="message-bar">Press Start</div>
   <div id="whole-shebang">
     <div id="side-bar">
       <div id="score-board">
         <h1>High Score</h1>
         <p id="actual-score">0</p>
+        <h2>Current Score</h1>
+        <p id="current-score">0</p>
       </div><!-- score-board -->
     </div><!-- side-bar -->
     <div id="board">
