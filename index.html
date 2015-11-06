@@ -2,12 +2,12 @@
 <html>
 <head>
   <title>Simon Says</title>
+  <audio id="beepTime" src="shortBeep.mp3"></audio>
+  <audio id="lowBeep" src="lowBeep.mp3"></audio>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 </head>
 <body>
-  <div id="start">
-   <p>Start</p> 
-  </div> 
   <div id="whole-shebang">
     <div id="side-bar">
       <div id="score-board">
@@ -18,9 +18,10 @@
     <div id="board">
       <div id="game-time">
         <div id="black-round-part">
-          <div id="flash-part"></div>
+          <div id="start">
+           <p>Start</p> 
+          </div> 
           <div id="color-buttons">
-            <audio id="beepTime" src="beep-01a.mp3"></audio>
             <div id="red" class="pressable"></div>
             <div id="blue" class="pressable"></div>
             <div id="yellow" class="pressable"></div>          
@@ -30,7 +31,6 @@
       </div><!-- game-time -->
     </div><!-- board -->
   </div><!-- whole-shebang -->
-  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
   <script type="text/javascript" src="main.js"></script>
 </body>
 </html>

@@ -36,7 +36,7 @@
   float: right;
   width: 80%;
   height: 100%;
-  background: pink;
+/*  background: pink;*/
 }
 /*contains actual buttons/is centered in game space*/
 #game-time{
@@ -48,6 +48,7 @@
 }
 /*actuay game portion*/
 #black-round-part{
+  position:relative;
   background: #FFFF99;
   border: solid #282828;
   border-radius: 250px;
@@ -57,11 +58,18 @@
 }
 /*start button*/
 #start{
-  display: block;
-  margin: 0 auto;
+  position:absolute;
+  top:30%;
+  left:30%;
+  width:40%;
+  height:40%;
   font-size: 30px;
   color: white;
-  background-color: pink;
+  background-color: #282828;
+  border-radius:50%;
+  text-align:center;
+  border-color: white;
+  border-width: 5px;
 }
 #color-buttons{
   display: block;
@@ -97,7 +105,7 @@
   /*background-color: white;*/
 }
 
-
+/*box shadow, css tricks, sampling songs*/
 
 
 
