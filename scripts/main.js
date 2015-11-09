@@ -7,8 +7,9 @@
   var $highScore;
   var $currentScore;
 
+  var $messageBar;
   //If this is true, it is the computer's turn
-  var computer=true;
+  var computer = true;
 
   //need an array that holds computer's random order
   //program will call clicked(on each element)
@@ -22,7 +23,7 @@
     var noFlash = function() {
       $element.removeClass('flash');
       //check progress when we turn off flash
-      if(!computer && (userClicks.length === orderedClicks.length)){
+      if(! computer && (userClicks.length === orderedClicks.length)){
         compareClicks();
       } 
     }
@@ -31,7 +32,7 @@
       //should be: 'computer? false'
       //console.log('computer? '+computer);
       //adding element to user array if user is the one playing
-      if(!computer){
+      if(! computer){
         userClicks.push($element);
         $currentScore.text(userClicks.length);
         //should be 'at click 1,2,3,4,etc.'
@@ -39,7 +40,7 @@
       }
       $element.addClass('flash');
       var beep = function(){
-        if($element===$red || $element===$blue){
+        if($element === $red || $element === $blue){
           document.getElementById('beepTime').play();
         }else{
           document.getElementById('lowBeep').play(); 
@@ -56,34 +57,53 @@
   var addToSequence = function() {
     var randomColor = Math.floor(Math.random() * 3);
     //0=red
-    if(randomColor===0){
+    if(randomColor === 0){
       //0=red
       orderedClicks.push($red);
-    }else if(randomColor===1){
+    }else if(randomColor === 1){
       //0=blue
       orderedClicks.push($blue);      
-    }else if(randomColor===2){
+    }else if(randomColor === 2){
       //0=yellow
       orderedClicks.push($yellow);      
-    }else if(randomColor===3){
+    }else if(randomColor === 3){
       //0=green
       orderedClicks.push($green);      
     }
   }
 
   var userTurnAlert = function(){
-      alert('your turn!');
-      computer=false;
+      $messageBar.text('Your turn!');
+      //alert('your turn!');
+      computer = false;
+      $red.on('click', clicked($red));
+      $blue.on('click', clicked($blue));
+      $yellow.on('click', clicked($yellow));
+      $green.on('click', clicked($green));
   }
 
   //need func that reads orderedClicks array and calls clicked() on it
   var runOrderedClicks = function() {
-    var i=0;
+    $messageBar.text('');
+    var i = 0;
     for (i = 0; i < orderedClicks.length; i++) {
-      setTimeout(clicked(orderedClicks[i]), i*500);
+      setTimeout(clicked(orderedClicks[i]), (i + 1) * 500);
     };
-    setTimeout(userTurnAlert,i*500);
-  } 
+    setTimeout(userTurnAlert,(i + 1) * 500);
+  }  
+
+  var started = function(){
+    $start.addClass('animated');
+    $start.addClass('pulse');
+    userClicks = [];
+    orderedClicks = [];
+    addToSequence();  
+    computer = true;
+    //alert('GET READY');
+    //start displaying the button's glow after 1 second
+    $messageBar.text('Computer is Playing...');
+    setTimeout(runOrderedClicks,2000);
+  }
 
   //need func that cuts out event listeners when player gets order wrong
   var lost = function() {
@@ -91,8 +111,12 @@
     $blue.off();
     $yellow.off();
     $green.off();
-    alert('you lost!');
+    $messageBar.text('You lost! Try Again! Press Start');
+    //alert('you lost!');
     $currentScore.text(0);
+    $currentScore.addClass('flip');
+    $currentScore.addClass('animated');
+    $start.on('click', started); 
   }
 
   var compareClicks = function() {
@@ -106,15 +130,22 @@
         //clears user clicks
         $highScore.text(userClicks.length);
         //console.log($highScore.val());
-        alert('you get to move on!');
-        userClicks=[];
-        computer=true;
+        $messageBar.text('you get to move on!');
+        // alert('you get to move on!');
+        userClicks = [];
+        computer = true;
+        $red.off();
+        $blue.off();
+        $yellow.off();
+        $green.off();
         addToSequence();
-        setTimeout(runOrderedClicks, 1000);
+        $messageBar.text('Computer is Playing...');
+        setTimeout(runOrderedClicks, 2000);
       }else{
         lost();
       }
   }
+
 
 $(document).ready(function() {
   //assigning variables to HTML elements
@@ -124,28 +155,18 @@ $(document).ready(function() {
   $green = $('#green'); 
   $start = $('#start');
   $highScore = $('#actual-score');
-  $currentScore = $('#current-score'); 
+  $currentScore = $('#current-score');
+  $messageBar = $('#message-bar');
+  $messageBar.addClass('animated');
+  $messageBar.addClass('zoomInRight');
   //Beginning game with item in array
 
 
   //gets game started when start button pressed
-  $start.on('click', function(){
-    //warn user
-    $start.addClass('animated', 'bounce');
-    userClicks=[];
-    orderedClicks=[];
-    addToSequence();
-    computer=true;
-    alert('GET READY');
-    //start displaying the button's glow after 1 second
-    setTimeout(runOrderedClicks,1000);
-  }); 
+  $start.on('click', started); 
 
   //ready for user clicks!
-  $red.on('click', clicked($red));
-  $blue.on('click', clicked($blue));
-  $yellow.on('click', clicked($yellow));
-  $green.on('click', clicked($green));
+
 });
 
 
