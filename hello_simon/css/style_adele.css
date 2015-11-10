@@ -27,18 +27,18 @@
   width: 80%;
   height: 30%;
   background: white;
-  font-size: 10px;
+  font-size: 20px;
   font-style: italic;
   padding-left: 5px;
 }
 #actual-score{
-  font-size: 20px;
+  font-size: 30px;
   font-style: normal;
   padding-left: 10px;
   color: green;
 }
 #current-score{
-  font-size: 15px;
+  font-size: 25px;
   font-style: normal;
   padding-left: 10px;
   color: green;
@@ -97,18 +97,22 @@
   border-width: 4px;
 }
 #red{
+/*  background-image: url(images/red.jpg);*/
   background-color: red;
   border-radius: 360% 0 0 0;
 }
 #blue{
+/*  background-image: url(images/blue.jpg);*/
   background-color: blue;
   border-radius: 0 360% 0 0;
 }
 #green{
+/*  background-image: url(images/red.png);*/
   background-color: green;
   border-radius: 0 0 360% 0;
 }
 #yellow{
+/*  background-image: url(images/red.png);*/
   background-color: yellow;
   border-radius: 0 0 0 360%;
 }
