@@ -25,7 +25,7 @@
       //check progress when we turn off flash
       if(! computer && (userClicks.length === orderedClicks.length)){
         compareClicks();
-      }; 
+      } 
     }
     //making invisable for 150 mili-seconds
     var flash = function() {
@@ -37,20 +37,19 @@
         $currentScore.text(userClicks.length);
         //should be 'at click 1,2,3,4,etc.'
         //console.log('at click '+userClicks.indexOf($element));
-      };
+      }
       $element.addClass('flash');
       var beep = function(){
         if($element === $red){
-          document.getElementById('red-sound').play();
+          document.getElementById('red-hello').play();
         } else if($element === $blue){
-          document.getElementById('blue-sound').play();
+          document.getElementById('blue-me').play();
         } else if($element === $green){
-          document.getElementById('green-sound').play();
-        } else {
-          document.getElementById('yellow-sound').play(); 
-        }; 
+          document.getElementById('green-side').play();
+        } else{
+          document.getElementById('hello').play(); 
+        } 
       }
-
       beep();
       setTimeout(noFlash, 150);  
       // ! add sound effect  
@@ -61,19 +60,20 @@
   //add a random element to the ordered clicks array
   var addToSequence = function() {
     var randomColor = Math.floor(Math.random() * 3);
+    //0=red
     if(randomColor === 0){
       //0=red
       orderedClicks.push($red);
     }else if(randomColor === 1){
-      //1=blue
+      //0=blue
       orderedClicks.push($blue);      
     }else if(randomColor === 2){
-      //2=yellow
+      //0=yellow
       orderedClicks.push($yellow);      
-    }else{
-      //3=green
+    }else if(randomColor === 3){
+      //0=green
       orderedClicks.push($green);      
-    };
+    }
   }
 
   var userTurnAlert = function(){
@@ -91,9 +91,9 @@
     $messageBar.text('');
     var i = 0;
     for (i = 0; i < orderedClicks.length; i++) {
-      setTimeout(clicked(orderedClicks[i]), (i + 1) * 500);
+      setTimeout(clicked(orderedClicks[i]), (i + 1) * 1000);
     };
-    setTimeout(userTurnAlert,(i + 1) * 500);
+    setTimeout(userTurnAlert,(i + 1) * 1000);
   }  
 
   var started = function(){
@@ -129,8 +129,8 @@
       for (var i = 0; i < orderedClicks.length; i++) {
         if(orderedClicks[i] !== userClicks[i]){
           moveOn = false;
-        };
-      };
+        }
+      }
       if(moveOn) {
         //clears user clicks
         $highScore.text(userClicks.length);
@@ -148,7 +148,7 @@
         setTimeout(runOrderedClicks, 2000);
       }else{
         lost();
-      };
+      }
   }
 
 
